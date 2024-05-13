@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header(){
     return (
       <header className="bg-white shadow-md py-4">
@@ -6,13 +8,13 @@ export default function Header(){
           <nav>
             <ul className="flex space-x-4">
               <li>
-                  <a href='/TimeLine' className="text-gray-800 hover:text-blue-500 transition duration-300">TimeLine</a>
+                  <Link to='/TimeLine' className="text-gray-800 hover:text-blue-500 transition duration-300">TimeLine</Link>
               </li>
               <li>
-                  <a href='/auth/login' className="text-gray-800 hover:text-blue-500 transition duration-300">Login</a>
+                  <Link to='/auth/login' className="text-gray-800 hover:text-blue-500 transition duration-300">Login</Link>
               </li>
               <li>
-                  <a href="/auth/signup"className="text-gray-800 hover:text-blue-500 transition duration-300">SignUp</a>
+                  <Link to="/auth/signup"className="text-gray-800 hover:text-blue-500 transition duration-300">SignUp</Link>
               </li>
             </ul>
           </nav>
