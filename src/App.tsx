@@ -10,9 +10,6 @@ function App() {
   return (
     <Router>
     <Header/>
-      <p className="text-black">
-        Click on the Vite and React logos to learn more
-      </p>
       <Routes>
           <Route path="/TimeLine" element={<TimeLine/>} />
           <Route path="/auth/login" element={<Login/>} />
