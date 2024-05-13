@@ -19,8 +19,5 @@ export async function fetchPosts() {
         console.error('Error fetching posts:', error);
         throw new Error('Failed to fetch posts');
       }
-      const formattedData = data.map(post => ({
-        ...post,
-       ...post.User}))
-      return formattedData;
+      return data;
     }
