@@ -3,10 +3,13 @@ import './App.css'
 import Header from './components/Header'
 import TimeLine from './pages/TimeLine'
 import Login from './pages/Login'
-
-function App() {
- 
-
+import { createClient } from '@supabase/supabase-js'
+// import { Database } from './database.types'
+export const supabase = createClient(
+    process.env.SUPABASE_URL!,
+    process.env.SUPABASE_ANON_KEY!
+  )
+  function App() {
   return (
     <Router>
     <Header/>
