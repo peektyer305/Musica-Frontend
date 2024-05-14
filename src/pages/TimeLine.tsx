@@ -20,7 +20,7 @@ export default function TimeLine()
               <div key={index}>
                 <PostCard id={post.id} created_at={post.created_at} content={post.content}
                     Image={post.Image} userId={post.userId} title={post.title}
-                    user={post.User}/>
+                    user={post.User}  url={post.url ? post.url : undefined}/>
               </div>
             ))}
           </div>  

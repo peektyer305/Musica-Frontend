@@ -10,6 +10,7 @@ export async function fetchPosts() {
         Image,
         userId,
         title,
+        url,
         User:User (
           username,
           userImage
