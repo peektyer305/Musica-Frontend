@@ -3,6 +3,7 @@ import { VscAccount } from "react-icons/vsc";
 import { useEffect, useState } from "react";
 import { supabase } from "../App";
 import { UserInfo } from "../types/data";
+import LogOutButton from "./LogOutButton";
 export default function Header(){   
 const[isLogin,setIsLogin] = useState(false);
 const[isUser,setIsUser] = useState<UserInfo>({
@@ -48,12 +49,18 @@ useEffect(() =>{
               <li>
                   <Link to='/TimeLine' className="text-gray-800 hover:text-blue-500 transition duration-300">TimeLine</Link>
               </li>
-              <li>
-                  <Link to='/auth/login' className="text-gray-800 hover:text-blue-500 transition duration-300">Login</Link>
-              </li>
-              <li>
-                  <Link to="/auth/signup"className="text-gray-800 hover:text-blue-500 transition duration-300">SignUp</Link>
-              </li>
+                {isLogin
+                ? <LogOutButton />
+                :<ul className="flex space-x-4 items-center">
+                    <li>
+                        <Link to='/auth/login' className="text-gray-800 hover:text-blue-500 transition duration-300">Login</Link>
+                    </li> 
+                    <li>
+                        <Link to="/auth/signup"className="text-gray-800 hover:text-blue-500 transition duration-300">SignUp</Link>
+                    </li>
+                </ul>
+                }
+             
               <button className="text-2xl w-12 h-12">
                 {
                     (isLogin) ?

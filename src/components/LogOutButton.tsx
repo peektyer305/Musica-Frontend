@@ -19,6 +19,7 @@ export default function LogOutButton(){
     return(
         <button onClick={() =>{
             logOut()
-        }}>ログアウトする</button>
+        }} className="text-gray-800 hover:text-blue-500 transition duration-300">
+            Logout</button>
     )
 }
