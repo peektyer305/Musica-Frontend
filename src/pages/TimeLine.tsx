@@ -2,7 +2,6 @@ import {useEffect,useState} from "react"
 import { fetchPosts } from "../functions/fetchPosts"
 import { Post } from "../types/data"
 import PostCard from "../components/PostCard"
-import LogOutButton from "../components/LogOutButton"
 export default function TimeLine()
   { 
     const[posts,setPosts] = useState<any>()  
@@ -22,10 +21,8 @@ export default function TimeLine()
                 <PostCard id={post.id} created_at={post.created_at} content={post.content}
                     Image={post.Image} userId={post.userId} title={post.title}
                     user={post.User}/>
-                <LogOutButton/>
               </div>
             ))}
-            
           </div>  
     )
 }

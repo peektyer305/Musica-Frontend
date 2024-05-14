@@ -1,5 +1,4 @@
 import { supabase } from "../App";
-
 export async function signInWithGithub() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
@@ -8,7 +7,7 @@ export async function signInWithGithub() {
         console.log(data)
       }
       if(error){
-          console.log("OAuth error",error.message)
+          console.error("OAuth error",error.message)
       }
   }
   

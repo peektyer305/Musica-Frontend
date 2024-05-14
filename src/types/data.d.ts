@@ -1,4 +1,4 @@
-interface User {
+export interface User {
     username: string;
     userImage: string;
 }
@@ -11,4 +11,11 @@ export interface Post {
     userId: number;
     title: string;
     User: User; // 単一のUserオブジェクトを指定
+}
+
+export interface UserInfo{
+ email?:string;
+ id?:string;
+ userImage?:string;
+ userName?:string;
 }
