@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import fetchMetadata from "../functions/fetchMetadata";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 export default function PostCard(props:any){
   const [metadata, setMetadata] = useState<string | null>(null);
