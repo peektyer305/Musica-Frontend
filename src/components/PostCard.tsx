@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import fetchMetadata from "../functions/fetchMetadata";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 export default function PostCard(props:any){
-  const [metadata, setMetadata] = useState<string | null>(null);
+  const [metadata, setMetadata] = useState();
   useEffect(() => {
     if (props.url) {
       fetchMetadata(props.url)
         .then((data) => {
-          setMetadata(data);
+          const formattedData = JSON.parse(data).data;
+          setMetadata(formattedData);
+          console.log(metadata)
         })
         .catch((error) => {
           console.error('Error fetching metadata:', error);
-          setMetadata(null);
         });
     }
   }, [props.url]);
@@ -27,13 +29,14 @@ export default function PostCard(props:any){
             />
             <span className="ml-2 font-semibold">{props.user.username}</span>
           </div>
-          <div className="flex justify-center">
-             <img
-             src={props.Image}
-             alt="post"
-             className="w-auto h-auto"
-             />
-          </div>
+          <Splide className="flex justify-center">
+              <SplideSlide>
+                <img src={props.Image} alt="Image 1" className="w-auto h-auto"/>
+              </SplideSlide>
+              {props.url&&(<SplideSlide className="flex justify-center items-center">
+              <img src={metadata?.image} alt="Image 2" className="w-auto h-auto"/>
+              </SplideSlide>)}
+            </Splide>
           <div className="px-4 pb-4">
             <span className="font-semibold mr-2">{props.title}</span><br/>
             <span>{props.content}</span>
@@ -41,7 +44,7 @@ export default function PostCard(props:any){
             <span>{props.created}</span>
           </div>
           <div>
-            {(props.url)?(<div>{metadata}</div>):""}
+            {(props.url)?"":""}
           </div>
         </div>
       );

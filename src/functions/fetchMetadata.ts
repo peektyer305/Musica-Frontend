@@ -6,5 +6,5 @@ export default async function fetchMetadata(url:string){
         return JSON.stringify(response);
     } catch(error){
         return url;
-    }
+    } 
 }
